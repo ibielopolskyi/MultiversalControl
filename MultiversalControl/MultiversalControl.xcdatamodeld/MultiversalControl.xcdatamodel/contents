@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Monitor" representedClassName="Monitor" syncable="YES" codeGenerationType="class">
+        <attribute name="local" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="peripherals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Peripherals" inverseName="relationship" inverseEntity="Peripherals"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Peripherals" representedClassName="Peripherals" syncable="YES" codeGenerationType="class">
+        <attribute name="human_readable_name" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="ignore" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monitor" inverseName="peripherals" inverseEntity="Monitor"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="Monitor" positionX="-2138.8671875" positionY="-1158.51953125" width="128" height="88"/>
+        <element name="Peripherals" positionX="-2142" positionY="-1134" width="128" height="89"/>
     </elements>
 </model>
