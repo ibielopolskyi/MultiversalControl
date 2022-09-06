@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F82B81EE28C6E982002F9ED7 /* MultiversalControlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B81ED28C6E982002F9ED7 /* MultiversalControlApp.swift */; };
+		F82B81F028C6E982002F9ED7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B81EF28C6E982002F9ED7 /* ContentView.swift */; };
+		F82B81F228C6E986002F9ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F82B81F128C6E986002F9ED7 /* Assets.xcassets */; };
+		F82B81F528C6E986002F9ED7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F82B81F428C6E986002F9ED7 /* Preview Assets.xcassets */; };
+		F82B81F728C6E986002F9ED7 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B81F628C6E986002F9ED7 /* Persistence.swift */; };
+		F82B81FA28C6E986002F9ED7 /* MultiversalControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F82B81F828C6E986002F9ED7 /* MultiversalControl.xcdatamodeld */; };
+		F82B820528C6E986002F9ED7 /* MultiversalControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B820428C6E986002F9ED7 /* MultiversalControlTests.swift */; };
+		F82B820F28C6E986002F9ED7 /* MultiversalControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B820E28C6E986002F9ED7 /* MultiversalControlUITests.swift */; };
+		F82B821128C6E986002F9ED7 /* MultiversalControlUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B821028C6E986002F9ED7 /* MultiversalControlUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F82B820128C6E986002F9ED7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F82B81E228C6E982002F9ED7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F82B81E928C6E982002F9ED7;
+			remoteInfo = MultiversalControl;
+		};
+		F82B820B28C6E986002F9ED7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F82B81E228C6E982002F9ED7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F82B81E928C6E982002F9ED7;
+			remoteInfo = MultiversalControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F82B81EA28C6E982002F9ED7 /* MultiversalControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiversalControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82B81ED28C6E982002F9ED7 /* MultiversalControlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiversalControlApp.swift; sourceTree = "<group>"; };
+		F82B81EF28C6E982002F9ED7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F82B81F128C6E986002F9ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F82B81F428C6E986002F9ED7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F82B81F628C6E986002F9ED7 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		F82B81F928C6E986002F9ED7 /* MultiversalControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MultiversalControl.xcdatamodel; sourceTree = "<group>"; };
+		F82B81FB28C6E986002F9ED7 /* MultiversalControl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiversalControl.entitlements; sourceTree = "<group>"; };
+		F82B820028C6E986002F9ED7 /* MultiversalControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiversalControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82B820428C6E986002F9ED7 /* MultiversalControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiversalControlTests.swift; sourceTree = "<group>"; };
+		F82B820A28C6E986002F9ED7 /* MultiversalControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiversalControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F82B820E28C6E986002F9ED7 /* MultiversalControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiversalControlUITests.swift; sourceTree = "<group>"; };
+		F82B821028C6E986002F9ED7 /* MultiversalControlUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiversalControlUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F82B81E728C6E982002F9ED7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82B81FD28C6E986002F9ED7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82B820728C6E986002F9ED7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F82B81E128C6E982002F9ED7 = {
+			isa = PBXGroup;
+			children = (
+				F82B81EC28C6E982002F9ED7 /* MultiversalControl */,
+				F82B820328C6E986002F9ED7 /* MultiversalControlTests */,
+				F82B820D28C6E986002F9ED7 /* MultiversalControlUITests */,
+				F82B81EB28C6E982002F9ED7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F82B81EB28C6E982002F9ED7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F82B81EA28C6E982002F9ED7 /* MultiversalControl.app */,
+				F82B820028C6E986002F9ED7 /* MultiversalControlTests.xctest */,
+				F82B820A28C6E986002F9ED7 /* MultiversalControlUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F82B81EC28C6E982002F9ED7 /* MultiversalControl */ = {
+			isa = PBXGroup;
+			children = (
+				F82B81ED28C6E982002F9ED7 /* MultiversalControlApp.swift */,
+				F82B81EF28C6E982002F9ED7 /* ContentView.swift */,
+				F82B81F128C6E986002F9ED7 /* Assets.xcassets */,
+				F82B81F628C6E986002F9ED7 /* Persistence.swift */,
+				F82B81FB28C6E986002F9ED7 /* MultiversalControl.entitlements */,
+				F82B81F828C6E986002F9ED7 /* MultiversalControl.xcdatamodeld */,
+				F82B81F328C6E986002F9ED7 /* Preview Content */,
+			);
+			path = MultiversalControl;
+			sourceTree = "<group>";
+		};
+		F82B81F328C6E986002F9ED7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F82B81F428C6E986002F9ED7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F82B820328C6E986002F9ED7 /* MultiversalControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				F82B820428C6E986002F9ED7 /* MultiversalControlTests.swift */,
+			);
+			path = MultiversalControlTests;
+			sourceTree = "<group>";
+		};
+		F82B820D28C6E986002F9ED7 /* MultiversalControlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F82B820E28C6E986002F9ED7 /* MultiversalControlUITests.swift */,
+				F82B821028C6E986002F9ED7 /* MultiversalControlUITestsLaunchTests.swift */,
+			);
+			path = MultiversalControlUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F82B81E928C6E982002F9ED7 /* MultiversalControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82B821428C6E986002F9ED7 /* Build configuration list for PBXNativeTarget "MultiversalControl" */;
+			buildPhases = (
+				F82B81E628C6E982002F9ED7 /* Sources */,
+				F82B81E728C6E982002F9ED7 /* Frameworks */,
+				F82B81E828C6E982002F9ED7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MultiversalControl;
+			productName = MultiversalControl;
+			productReference = F82B81EA28C6E982002F9ED7 /* MultiversalControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F82B81FF28C6E986002F9ED7 /* MultiversalControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82B821728C6E986002F9ED7 /* Build configuration list for PBXNativeTarget "MultiversalControlTests" */;
+			buildPhases = (
+				F82B81FC28C6E986002F9ED7 /* Sources */,
+				F82B81FD28C6E986002F9ED7 /* Frameworks */,
+				F82B81FE28C6E986002F9ED7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F82B820228C6E986002F9ED7 /* PBXTargetDependency */,
+			);
+			name = MultiversalControlTests;
+			productName = MultiversalControlTests;
+			productReference = F82B820028C6E986002F9ED7 /* MultiversalControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F82B820928C6E986002F9ED7 /* MultiversalControlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82B821A28C6E986002F9ED7 /* Build configuration list for PBXNativeTarget "MultiversalControlUITests" */;
+			buildPhases = (
+				F82B820628C6E986002F9ED7 /* Sources */,
+				F82B820728C6E986002F9ED7 /* Frameworks */,
+				F82B820828C6E986002F9ED7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F82B820C28C6E986002F9ED7 /* PBXTargetDependency */,
+			);
+			name = MultiversalControlUITests;
+			productName = MultiversalControlUITests;
+			productReference = F82B820A28C6E986002F9ED7 /* MultiversalControlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F82B81E228C6E982002F9ED7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					F82B81E928C6E982002F9ED7 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					F82B81FF28C6E986002F9ED7 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = F82B81E928C6E982002F9ED7;
+					};
+					F82B820928C6E986002F9ED7 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = F82B81E928C6E982002F9ED7;
+					};
+				};
+			};
+			buildConfigurationList = F82B81E528C6E982002F9ED7 /* Build configuration list for PBXProject "MultiversalControl" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F82B81E128C6E982002F9ED7;
+			productRefGroup = F82B81EB28C6E982002F9ED7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F82B81E928C6E982002F9ED7 /* MultiversalControl */,
+				F82B81FF28C6E986002F9ED7 /* MultiversalControlTests */,
+				F82B820928C6E986002F9ED7 /* MultiversalControlUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F82B81E828C6E982002F9ED7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82B81F528C6E986002F9ED7 /* Preview Assets.xcassets in Resources */,
+				F82B81F228C6E986002F9ED7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82B81FE28C6E986002F9ED7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82B820828C6E986002F9ED7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F82B81E628C6E982002F9ED7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82B81FA28C6E986002F9ED7 /* MultiversalControl.xcdatamodeld in Sources */,
+				F82B81F728C6E986002F9ED7 /* Persistence.swift in Sources */,
+				F82B81F028C6E982002F9ED7 /* ContentView.swift in Sources */,
+				F82B81EE28C6E982002F9ED7 /* MultiversalControlApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82B81FC28C6E986002F9ED7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82B820528C6E986002F9ED7 /* MultiversalControlTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F82B820628C6E986002F9ED7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F82B820F28C6E986002F9ED7 /* MultiversalControlUITests.swift in Sources */,
+				F82B821128C6E986002F9ED7 /* MultiversalControlUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F82B820228C6E986002F9ED7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F82B81E928C6E982002F9ED7 /* MultiversalControl */;
+			targetProxy = F82B820128C6E986002F9ED7 /* PBXContainerItemProxy */;
+		};
+		F82B820C28C6E986002F9ED7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F82B81E928C6E982002F9ED7 /* MultiversalControl */;
+			targetProxy = F82B820B28C6E986002F9ED7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F82B821228C6E986002F9ED7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F82B821328C6E986002F9ED7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		F82B821528C6E986002F9ED7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MultiversalControl/MultiversalControl.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MultiversalControl/Preview Content\"";
+				DEVELOPMENT_TEAM = 936ND33T3S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bielopolskyi.MultiversalControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F82B821628C6E986002F9ED7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MultiversalControl/MultiversalControl.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MultiversalControl/Preview Content\"";
+				DEVELOPMENT_TEAM = 936ND33T3S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bielopolskyi.MultiversalControl;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F82B821828C6E986002F9ED7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 936ND33T3S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bielopolskyi.MultiversalControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiversalControl.app/Contents/MacOS/MultiversalControl";
+			};
+			name = Debug;
+		};
+		F82B821928C6E986002F9ED7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 936ND33T3S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bielopolskyi.MultiversalControlTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiversalControl.app/Contents/MacOS/MultiversalControl";
+			};
+			name = Release;
+		};
+		F82B821B28C6E986002F9ED7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 936ND33T3S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bielopolskyi.MultiversalControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MultiversalControl;
+			};
+			name = Debug;
+		};
+		F82B821C28C6E986002F9ED7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 936ND33T3S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = bielopolskyi.MultiversalControlUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = MultiversalControl;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F82B81E528C6E982002F9ED7 /* Build configuration list for PBXProject "MultiversalControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82B821228C6E986002F9ED7 /* Debug */,
+				F82B821328C6E986002F9ED7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F82B821428C6E986002F9ED7 /* Build configuration list for PBXNativeTarget "MultiversalControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82B821528C6E986002F9ED7 /* Debug */,
+				F82B821628C6E986002F9ED7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F82B821728C6E986002F9ED7 /* Build configuration list for PBXNativeTarget "MultiversalControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82B821828C6E986002F9ED7 /* Debug */,
+				F82B821928C6E986002F9ED7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F82B821A28C6E986002F9ED7 /* Build configuration list for PBXNativeTarget "MultiversalControlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F82B821B28C6E986002F9ED7 /* Debug */,
+				F82B821C28C6E986002F9ED7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F82B81F828C6E986002F9ED7 /* MultiversalControl.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F82B81F928C6E986002F9ED7 /* MultiversalControl.xcdatamodel */,
+			);
+			currentVersion = F82B81F928C6E986002F9ED7 /* MultiversalControl.xcdatamodel */;
+			path = MultiversalControl.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F82B81E228C6E982002F9ED7 /* Project object */;
+}
