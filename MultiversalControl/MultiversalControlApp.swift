@@ -17,7 +17,7 @@ class AppDelegate: NSResponder, NSApplicationDelegate {
     
     func applicationWillFinishLaunching(_ notification: Notification) {
         monitorController.setupNotificationCenter()
-        browser.start()
+        reBrowse()
         bluetoothController.start()
     }
 

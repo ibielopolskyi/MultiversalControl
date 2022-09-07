@@ -73,12 +73,14 @@ struct MDNSModel {
             let objects = try context.fetch(fetchRequest)
             for object in objects {
                 if (object.name == monitor){
-                    object.local = !remote
-                    do {
-                        try context.save()
-                    } catch {
-                        print(error)
-                        print("failed to save monitor")
+                    if (!object.local) {
+                        object.local = !remote
+                        do {
+                            try context.save()
+                        } catch {
+                            print(error)
+                            print("failed to save monitor")
+                        }
                     }
                     return
                 }

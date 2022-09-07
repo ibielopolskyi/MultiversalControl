@@ -8,7 +8,15 @@
 import Foundation
 import Network
 
-let browser = Browser(type:"_kvm._tcp", domain:"local")
+var _browser:Browser? = nil
+
+func reBrowse(){
+    if _browser != nil {
+        _browser!.browser.cancel()
+        _browser = nil
+    }
+    _browser = Browser(type:"_kvm._tcp", domain:"local")
+}
 
 class Browser {
 
@@ -19,26 +27,23 @@ class Browser {
         parameters.includePeerToPeer = true
 
         browser = NWBrowser(for: .bonjourWithTXTRecord(type: type, domain: domain), using: parameters)
-    }
-
-    func start() {
         browser.browseResultsChangedHandler = { results, changes in
             for result in results {
                 if case NWEndpoint.service = result.endpoint {
                     switch result.metadata {
-                    case .bonjour(let record):
-                        let model = MDNSModel(fromDict:record.dictionary)
-                        print(record.dictionary)
-                        model.save(remote: true)
-                    case .none:
-                        print("No metadata")
-                    @unknown default:
-                    print("No metadata")
-
+                        case .bonjour(let record):
+                            let model = MDNSModel(fromDict:record.dictionary)
+                            print(record.dictionary)
+                            model.save(remote: true)
+                        case .none:
+                            print("No metadata")
+                            reBrowse()
+                        @unknown default:
+                            reBrowse()
+                        }
                     }
                 }
             }
-        }
         browser.start(queue: .main)
     }
 }

@@ -16,7 +16,6 @@
 		F82B820528C6E986002F9ED7 /* MultiversalControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B820428C6E986002F9ED7 /* MultiversalControlTests.swift */; };
 		F82B820F28C6E986002F9ED7 /* MultiversalControlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B820E28C6E986002F9ED7 /* MultiversalControlUITests.swift */; };
 		F82B821128C6E986002F9ED7 /* MultiversalControlUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B821028C6E986002F9ED7 /* MultiversalControlUITestsLaunchTests.swift */; };
-		F82B822028C6EC28002F9ED7 /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82B821E28C6EC28002F9ED7 /* IOBluetoothUI.framework */; };
 		F82B822128C6EC28002F9ED7 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82B821F28C6EC28002F9ED7 /* IOBluetooth.framework */; };
 		F82B822328C6ECC2002F9ED7 /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B822228C6ECC2002F9ED7 /* BluetoothController.swift */; };
 		F82B822728C6ECE8002F9ED7 /* MonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B822628C6ECE8002F9ED7 /* MonitorController.swift */; };
@@ -58,7 +57,6 @@
 		F82B820A28C6E986002F9ED7 /* MultiversalControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiversalControlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82B820E28C6E986002F9ED7 /* MultiversalControlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiversalControlUITests.swift; sourceTree = "<group>"; };
 		F82B821028C6E986002F9ED7 /* MultiversalControlUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiversalControlUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F82B821E28C6EC28002F9ED7 /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = SDKROOT; };
 		F82B821F28C6EC28002F9ED7 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
 		F82B822228C6ECC2002F9ED7 /* BluetoothController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
 		F82B822628C6ECE8002F9ED7 /* MonitorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorController.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F82B822028C6EC28002F9ED7 /* IOBluetoothUI.framework in Frameworks */,
 				F82B822128C6EC28002F9ED7 /* IOBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				F82B821F28C6EC28002F9ED7 /* IOBluetooth.framework */,
-				F82B821E28C6EC28002F9ED7 /* IOBluetoothUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -270,7 +266,6 @@
 			);
 			mainGroup = F82B81E128C6E982002F9ED7;
 			packageReferences = (
-				F82B822F28C7133E002F9ED7 /* XCRemoteSwiftPackageReference "dns_sd" */,
 			);
 			productRefGroup = F82B81EB28C6E982002F9ED7 /* Products */;
 			projectDirPath = "";
@@ -479,7 +474,6 @@
 		F82B821528C6E986002F9ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MultiversalControl/MultiversalControl.entitlements;
@@ -493,7 +487,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MultiversalControl/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "MultiversalControl uses local network to provide identifiers of Bluetooth devices for connection";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -512,7 +508,6 @@
 		F82B821628C6E986002F9ED7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MultiversalControl/MultiversalControl.entitlements;
@@ -525,7 +520,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MultiversalControl/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "MultiversalControl uses local network to provide identifiers of Bluetooth devices for connection";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -651,17 +648,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F82B822F28C7133E002F9ED7 /* XCRemoteSwiftPackageReference "dns_sd" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nallick/dns_sd.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		F82B81F828C6E986002F9ED7 /* MultiversalControl.xcdatamodeld */ = {
