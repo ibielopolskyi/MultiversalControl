@@ -31,12 +31,17 @@ class MonitorController {
             selector: #selector(handleDisplayConnection),
             name: NSApplication.didChangeScreenParametersNotification,
             object: nil)
+        NSWorkspace.shared.notificationCenter.addObserver(
+                self, selector: #selector(handleDisplayConnection),
+                name: NSWorkspace.didWakeNotification, object: nil)
+
     }
 
     @objc func handleDisplayConnection(notification: Notification) {
+        print(notification)
         let currentScreens = NSScreen.externalScreens()
-        if externalDisplayCount < currentScreens.count {
-            print("An external display was connected.")
+        if externalDisplayCount <= currentScreens.count {
+            print("Display change has occured")
             for monitor in Monitor.getLocal(context: context) {
                 monitor.onConnect()
                 do {
@@ -58,8 +63,6 @@ class MonitorController {
                     print(error)
                 }
             }
-        } else {
-            print("A display configuration change occurred.")
         }
         externalMonitors = Set(currentScreens.map { $0.localizedName })
         externalDisplayCount = currentScreens.count
