@@ -11,10 +11,12 @@ import SwiftUI
 import CoreData
 
 
-var monitorController = MonitorController()
-
 class MonitorController {
-    let context = PersistenceController.shared.container.newBackgroundContext()
+    let context: NSManagedObjectContext
+    
+    init (context: NSManagedObjectContext) {
+        self.context = context
+    }
     var externalMonitors: Set<String> = Set(NSScreen.externalScreens().map { $0.localizedName })
     var externalDisplayCount:Int = NSScreen.externalScreens().count
 

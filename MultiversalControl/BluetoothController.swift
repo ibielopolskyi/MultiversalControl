@@ -9,7 +9,6 @@ import Foundation
 import Cocoa
 import CoreData
 
-var bluetoothController = BluetoothController()
 
 class PairDelegate : NSObject, IOBluetoothDevicePairDelegate {
     let klass: IOBluetoothDevicePair
@@ -29,10 +28,12 @@ class PairDelegate : NSObject, IOBluetoothDevicePairDelegate {
         _ sender: Any!,
         error: IOReturn
     ) {
-        if self.device.isPaired(){
+        if self.device.isPaired() && !self.device.isConnected() {
             self.device.openConnection()
-        } else {
+        } else if !self.device.isPaired() {
             print("pairing finished and no paired")
+        } else {
+            print("Device already connected")
         }
     }
     
@@ -40,17 +41,23 @@ class PairDelegate : NSObject, IOBluetoothDevicePairDelegate {
         _ sender: Any!,
         status: BluetoothHCIEventStatus
     ) {
-        if self.device.isPaired(){
+        if self.device.isPaired() && !self.device.isConnected() {
             self.device.openConnection()
-        } else {
+        } else if !self.device.isPaired() {
             print("pairing finished simple complete and no paired")
+        } else {
+            print("Device already connected")
         }
     }
     
 }
 
 class BluetoothController {
-    let context = PersistenceController.shared.container.newBackgroundContext()
+    let context: NSManagedObjectContext
+    
+    init (context: NSManagedObjectContext) {
+        self.context = context
+    }
     
     @objc func handleConnect(notification: IOBluetoothUserNotification, device: IOBluetoothDevice) {
         for monitor in Monitor.getLocal(context: context) {

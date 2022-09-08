@@ -119,7 +119,7 @@ public extension Monitor {
         self.local = false
         for peripherial in peripheralsList() {
             if !(peripherial.ignore) {
-                //_ = peripherial.unpair()
+                _ = peripherial.unpair()
             }
         }
     }
@@ -133,6 +133,7 @@ public extension Monitor {
         let peripheral = Peripherals(context: managedObjectContext!)
         peripheral.id = id
         peripheral.ignore = false
+        peripheral.lost = false
         addToPeripherals(peripheral)
     }
 

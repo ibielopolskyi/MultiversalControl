@@ -16,9 +16,10 @@ class AppDelegate: NSResponder, NSApplicationDelegate {
     
     
     func applicationWillFinishLaunching(_ notification: Notification) {
-        monitorController.setupNotificationCenter()
-        reBrowse()
-        bluetoothController.start()
+        let context = persistenceController.container.viewContext
+        MonitorController(context: context).setupNotificationCenter()
+        reBrowse(context: context)
+        BluetoothController(context: context).start()
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {

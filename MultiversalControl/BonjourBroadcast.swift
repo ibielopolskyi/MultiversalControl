@@ -7,22 +7,25 @@
 
 import Foundation
 import Network
+import CoreData
 
 var _browser:Browser? = nil
 
-func reBrowse(){
+func reBrowse(context: NSManagedObjectContext){
     if _browser != nil {
         _browser!.browser.cancel()
         _browser = nil
     }
-    _browser = Browser(type:"_kvm._tcp", domain:"local")
+    _browser = Browser(type:"_kvm._tcp", domain:"local", context: context)
 }
 
 class Browser {
-    let context = PersistenceController.shared.container.newBackgroundContext()
+    let context: NSManagedObjectContext
+
     let browser: NWBrowser
 
-    init(type: String, domain: String) {
+    init(type: String, domain: String, context: NSManagedObjectContext) {
+        self.context = context
         let parameters = NWParameters()
         parameters.includePeerToPeer = true
 
