@@ -15,10 +15,20 @@
         <attribute name="id" attributeType="String"/>
         <attribute name="ignore" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="lost" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monitor" inverseName="peripherals" inverseEntity="Monitor"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+                <constraint value="relationship"/>
+            </uniquenessConstraint>
+            <uniquenessConstraint>
+                <constraint value="uuid"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="Monitor" positionX="-2138.8671875" positionY="-1158.51953125" width="128" height="89"/>
-        <element name="Peripherals" positionX="-2142" positionY="-1134" width="128" height="89"/>
+        <element name="Peripherals" positionX="-2142" positionY="-1134" width="128" height="104"/>
     </elements>
 </model>

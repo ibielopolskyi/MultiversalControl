@@ -102,19 +102,19 @@ struct ContentView: View {
             ForEach(items) { monitor in
                 Collapsible(monitor: monitor)
             }
-            HStack() {
-                Spacer()
-                VStack(alignment:.trailing) {
-                    Toggle(isOn: $showDockSettings) {
-                        Text("Show dock settings")
-                    }.onChange(of: showDockSettings) { value in NSApp.setActivationPolicy(value ? .regular : .accessory) }
-                    Button(
-                        action: { exit(0) },
-                        label: { Text("Quit") }
-                    )
-                }.controlSize(.small)
-            }
         }
+        HStack() {
+            Spacer()
+            VStack(alignment:.trailing) {
+                Toggle(isOn: $showDockSettings) {
+                    Text("Show dock settings")
+                }.onChange(of: showDockSettings) { value in NSApp.setActivationPolicy(value ? .regular : .accessory) }
+                Button(
+                    action: { exit(0) },
+                    label: { Text("Quit") }
+                )
+            }.controlSize(.small)
+        }.frame(alignment:.bottom).padding([.bottom, .trailing], 5)
     }
 }
 

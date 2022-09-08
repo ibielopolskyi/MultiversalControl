@@ -145,6 +145,7 @@ public extension Monitor {
         peripheral.id = id
         peripheral.ignore = false
         peripheral.lost = false
+        peripheral.uuid = UUID()
         addToPeripherals(peripheral)
     }
 

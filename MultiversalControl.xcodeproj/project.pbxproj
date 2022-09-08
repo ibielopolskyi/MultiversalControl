@@ -23,6 +23,7 @@
 		F82B822E28C705C0002F9ED7 /* BonjourBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B822D28C705C0002F9ED7 /* BonjourBrowser.swift */; };
 		F82B823328C71488002F9ED7 /* BonjourServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B823228C71488002F9ED7 /* BonjourServer.swift */; };
 		F82B823A28C76885002F9ED7 /* IOBluetoothDevice+Remove.m in Sources */ = {isa = PBXBuildFile; fileRef = F82B823928C76885002F9ED7 /* IOBluetoothDevice+Remove.m */; };
+		F8B4C36128CAA480001DB85C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4C36028CAA480001DB85C /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		F82B823828C76885002F9ED7 /* IOBluetoothDevice+Remove.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOBluetoothDevice+Remove.h"; sourceTree = "<group>"; };
 		F82B823928C76885002F9ED7 /* IOBluetoothDevice+Remove.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IOBluetoothDevice+Remove.m"; sourceTree = "<group>"; };
 		F82B823F28C76A4E002F9ED7 /* MultiversalControl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MultiversalControl-Bridging-Header.h"; sourceTree = "<group>"; };
+		F8B4C36028CAA480001DB85C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				F82B822C28C702CC002F9ED7 /* Info.plist */,
 				F82B81ED28C6E982002F9ED7 /* MultiversalControlApp.swift */,
+				F8B4C36028CAA480001DB85C /* main.swift */,
 				F82B823F28C76A4E002F9ED7 /* MultiversalControl-Bridging-Header.h */,
 				F82B822A28C6F4CE002F9ED7 /* StatusBarController.swift */,
 				F82B822228C6ECC2002F9ED7 /* BluetoothController.swift */,
@@ -326,6 +329,7 @@
 				F82B822728C6ECE8002F9ED7 /* MonitorController.swift in Sources */,
 				F82B81F028C6E982002F9ED7 /* ContentView.swift in Sources */,
 				F82B822328C6ECC2002F9ED7 /* BluetoothController.swift in Sources */,
+				F8B4C36128CAA480001DB85C /* main.swift in Sources */,
 				F82B81EE28C6E982002F9ED7 /* MultiversalControlApp.swift in Sources */,
 				F82B823A28C76885002F9ED7 /* IOBluetoothDevice+Remove.m in Sources */,
 				F82B822E28C705C0002F9ED7 /* BonjourBrowser.swift in Sources */,

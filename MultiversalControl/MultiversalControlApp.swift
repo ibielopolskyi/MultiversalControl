@@ -10,6 +10,7 @@ import IOBluetooth
 
 
 class AppDelegate: NSResponder, NSApplicationDelegate {
+    @AppStorage("showMenuBarExtra") private var showMenuBarExtra = true
     let persistenceController = PersistenceController.shared
     var popover: NSPopover!
     var statusBar: StatusBarController!
@@ -24,8 +25,8 @@ class AppDelegate: NSResponder, NSApplicationDelegate {
             print("Failed to save monitor ignore")
             print(error)
         }
-        //sender.state = monitor.ignore ? .off : .on
     }
+
     func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
         let context = persistenceController.container.viewContext
         let mainMenu = NSMenu(title:"Settings")
@@ -69,14 +70,3 @@ class AppDelegate: NSResponder, NSApplicationDelegate {
 
 }
 
-@main
-struct MultiversalControlApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @AppStorage("showMenuBarExtra") private var showMenuBarExtra = true
-    @State var currentNumber: String = "1"
-    var body: some Scene {
-        WindowGroup() {
-            EmptyView()
-        }
-    }
-}
