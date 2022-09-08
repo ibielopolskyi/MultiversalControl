@@ -35,6 +35,12 @@ class Browser {
                             let monitor = Monitor.byName(context: self.context, name: record.dictionary["m"]!)
                             if (!monitor.local) {
                                 monitor.onDiscovery(data: record.dictionary)
+                                do {
+                                    try self.context.save()
+                                } catch {
+                                    print("External display broadcast update has failed")
+                                    print(error)
+                                }
                             }
                         case .none:
                             return

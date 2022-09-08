@@ -55,6 +55,12 @@ class BluetoothController {
     @objc func handleConnect(notification: IOBluetoothUserNotification, device: IOBluetoothDevice) {
         for monitor in Monitor.getLocal(context: context) {
             monitor.addDevice(id: device.addressString)
+            do {
+                try context.save()
+            } catch {
+                print("Handle connect save failed")
+                print(error)
+            }
             reAdvertise(monitor: monitor)
         }
     }
@@ -62,6 +68,12 @@ class BluetoothController {
     @objc func handleDisconnect(notification: IOBluetoothUserNotification, device: IOBluetoothDevice) {
         for monitor in Monitor.getLocal(context: context) {
             monitor.removeDevice(id: device.addressString)
+            do {
+                try context.save()
+            } catch {
+                print("Handle disconnect save failed")
+                print(error)
+            }
             reAdvertise(monitor: monitor)
         }
        

@@ -32,12 +32,24 @@ class MonitorController {
             print("An external display was connected.")
             for monitor in Monitor.getLocal(context: context) {
                 monitor.onConnect()
+                do {
+                    try context.save()
+                } catch {
+                    print("External display connection has failed")
+                    print(error)
+                }
             }
         } else if externalDisplayCount > currentScreens.count {
             print("An external display was disconnected")
             let currentLocal = Set(Monitor.getLocal(context: context).map { $0.name! })
             for screen in externalMonitors.subtracting(currentLocal) {
                 Monitor.byName(context: context, name:screen).onDisconnect()
+                do {
+                    try context.save()
+                } catch {
+                    print("External display disconnection has failed")
+                    print(error)
+                }
             }
         } else {
             print("A display configuration change occurred.")

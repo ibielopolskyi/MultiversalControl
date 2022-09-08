@@ -89,8 +89,6 @@ public extension Monitor {
         } catch {
             print("failed while retreiving monitor")
         }
-
-        monitor!.safeSave()
         return monitor!
     }
 
@@ -115,7 +113,6 @@ public extension Monitor {
                 _ = peripherial.pair()
             }
         }
-        safeSave()
     }
     
     func onDisconnect() {
@@ -125,28 +122,18 @@ public extension Monitor {
                 //_ = peripherial.unpair()
             }
         }
-        safeSave()
-    }
-    
-    func safeSave() {
-        do {
-            try managedObjectContext!.save()
-        } catch {
-            print(error)
-        }
     }
 
     func addDevice(id: String) {
         for peripheral in peripheralsList(includeLost: true).filter({ return $0.id == id }) {
+            print("Existing device update")
             peripheral.lost = false
-            safeSave()
             return
         }
         let peripheral = Peripherals(context: managedObjectContext!)
         peripheral.id = id
         peripheral.ignore = false
         addToPeripherals(peripheral)
-        safeSave()
     }
 
     func peripheralsList() -> [Peripherals] {
@@ -169,7 +156,6 @@ public extension Monitor {
                 peripherial.lost = true
             }
         }
-        safeSave()
     }
     
     func to_dns() throws -> NWTXTRecord {
@@ -195,7 +181,6 @@ public extension Monitor {
                 addDevice(id: device)
             }
             releaseRemote()
-            
         } catch {
             print("Something went wrong while discovery")
             print(error)
