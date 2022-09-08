@@ -29,6 +29,9 @@ struct ContentView: View {
         func doIgnore(peripheral: Peripherals) {
             peripheral.ignore = !peripheral.ignore
             reAdvertise(monitor: monitor)
+            if peripheral.isLoading() && peripheral.ignore {
+                _ = peripheral.unpair()
+            }
         }
         
         var body: some View {
@@ -52,7 +55,7 @@ struct ContentView: View {
             ).buttonStyle(.borderedProminent)
             Divider()
             ForEach(peripherials){ peripheral in
-                if (peripheral.relationship!.name! == monitor.name! && !peripheral.lost) {
+                if (peripheral.relationship != nil && peripheral.relationship!.name! == monitor.name! && !peripheral.lost) {
                     Button(
                         action: { doIgnore(peripheral: peripheral) },
                         label: {

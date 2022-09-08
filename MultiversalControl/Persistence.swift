@@ -24,6 +24,9 @@ public extension Peripherals {
     }
 
     func unpair() -> IOReturn {
+        if ignore {
+            return 1
+        }
         return device().unpair()
     }
 
@@ -36,6 +39,9 @@ public extension Peripherals {
     }
 
     func pair() -> IOReturn {
+        if ignore {
+            return 1
+        }
         if(!isPaired()) {
             let pairing = PairDelegate(device:device())
             return pairing.klass.start()
@@ -88,6 +94,16 @@ public extension Monitor {
         return monitor!
     }
 
+    func releaseRemote() {
+        if (!isConnected()) {
+            for peripherial in peripheralsList() {
+                if !(peripherial.ignore) {
+                    _ = peripherial.unpair()
+                }
+            }
+        }
+    }
+
     func isConnected() -> Bool {
         return NSScreen.externalScreens().map { $0.localizedName }.contains(self.name!)
     }
@@ -106,7 +122,7 @@ public extension Monitor {
         self.local = false
         for peripherial in peripheralsList() {
             if !(peripherial.ignore) {
-                _ = peripherial.unpair()
+                //_ = peripherial.unpair()
             }
         }
         safeSave()
@@ -178,6 +194,7 @@ public extension Monitor {
             for device in currentDevices {
                 addDevice(id: device)
             }
+            releaseRemote()
             
         } catch {
             print("Something went wrong while discovery")
