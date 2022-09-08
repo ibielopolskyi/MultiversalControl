@@ -20,7 +20,7 @@ public extension Peripherals {
     }
     
     func isLoading() -> Bool {
-        return (isConnected() == false) && (isPaired() == true)
+        return isConnected() && !isPaired() && !ignore
     }
 
     func unpair() -> IOReturn {

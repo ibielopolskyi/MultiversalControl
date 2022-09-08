@@ -18,6 +18,7 @@ struct ContentView: View {
 
 
     struct Collapsible: View {
+        @Environment(\.managedObjectContext) private var viewContext
         @FetchRequest(
             sortDescriptors: [NSSortDescriptor(keyPath: \Peripherals.id, ascending: false)],
             animation: .default)
@@ -31,6 +32,12 @@ struct ContentView: View {
             reAdvertise(monitor: monitor)
             if peripheral.isLoading() && peripheral.ignore {
                 _ = peripheral.unpair()
+            }
+            do {
+                try viewContext.save()
+            } catch {
+                print("Failed to save upon ignore")
+                print(error)
             }
         }
         
@@ -106,3 +113,6 @@ public extension Text {
             .textCase(nil)
     }
 }
+
+
+
