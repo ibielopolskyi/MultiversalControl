@@ -20,8 +20,8 @@
 		F82B822328C6ECC2002F9ED7 /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B822228C6ECC2002F9ED7 /* BluetoothController.swift */; };
 		F82B822728C6ECE8002F9ED7 /* MonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B822628C6ECE8002F9ED7 /* MonitorController.swift */; };
 		F82B822B28C6F4CE002F9ED7 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B822A28C6F4CE002F9ED7 /* StatusBarController.swift */; };
-		F82B822E28C705C0002F9ED7 /* BonjourBroadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B822D28C705C0002F9ED7 /* BonjourBroadcast.swift */; };
-		F82B823328C71488002F9ED7 /* BonjourAdvertise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B823228C71488002F9ED7 /* BonjourAdvertise.swift */; };
+		F82B822E28C705C0002F9ED7 /* BonjourBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B822D28C705C0002F9ED7 /* BonjourBrowser.swift */; };
+		F82B823328C71488002F9ED7 /* BonjourServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82B823228C71488002F9ED7 /* BonjourServer.swift */; };
 		F82B823A28C76885002F9ED7 /* IOBluetoothDevice+Remove.m in Sources */ = {isa = PBXBuildFile; fileRef = F82B823928C76885002F9ED7 /* IOBluetoothDevice+Remove.m */; };
 /* End PBXBuildFile section */
 
@@ -73,8 +73,8 @@
 		F82B822628C6ECE8002F9ED7 /* MonitorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorController.swift; sourceTree = "<group>"; };
 		F82B822A28C6F4CE002F9ED7 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		F82B822C28C702CC002F9ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		F82B822D28C705C0002F9ED7 /* BonjourBroadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourBroadcast.swift; sourceTree = "<group>"; };
-		F82B823228C71488002F9ED7 /* BonjourAdvertise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourAdvertise.swift; sourceTree = "<group>"; };
+		F82B822D28C705C0002F9ED7 /* BonjourBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourBrowser.swift; sourceTree = "<group>"; };
+		F82B823228C71488002F9ED7 /* BonjourServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourServer.swift; sourceTree = "<group>"; };
 		F82B823828C76885002F9ED7 /* IOBluetoothDevice+Remove.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOBluetoothDevice+Remove.h"; sourceTree = "<group>"; };
 		F82B823928C76885002F9ED7 /* IOBluetoothDevice+Remove.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IOBluetoothDevice+Remove.m"; sourceTree = "<group>"; };
 		F82B823F28C76A4E002F9ED7 /* MultiversalControl-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MultiversalControl-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -135,8 +135,8 @@
 				F82B823F28C76A4E002F9ED7 /* MultiversalControl-Bridging-Header.h */,
 				F82B822A28C6F4CE002F9ED7 /* StatusBarController.swift */,
 				F82B822228C6ECC2002F9ED7 /* BluetoothController.swift */,
-				F82B822D28C705C0002F9ED7 /* BonjourBroadcast.swift */,
-				F82B823228C71488002F9ED7 /* BonjourAdvertise.swift */,
+				F82B822D28C705C0002F9ED7 /* BonjourBrowser.swift */,
+				F82B823228C71488002F9ED7 /* BonjourServer.swift */,
 				F82B822628C6ECE8002F9ED7 /* MonitorController.swift */,
 				F82B81EF28C6E982002F9ED7 /* ContentView.swift */,
 				F82B81F128C6E986002F9ED7 /* Assets.xcassets */,
@@ -322,13 +322,13 @@
 				F82B81FA28C6E986002F9ED7 /* MultiversalControl.xcdatamodeld in Sources */,
 				F82B822B28C6F4CE002F9ED7 /* StatusBarController.swift in Sources */,
 				F82B81F728C6E986002F9ED7 /* Persistence.swift in Sources */,
-				F82B823328C71488002F9ED7 /* BonjourAdvertise.swift in Sources */,
+				F82B823328C71488002F9ED7 /* BonjourServer.swift in Sources */,
 				F82B822728C6ECE8002F9ED7 /* MonitorController.swift in Sources */,
 				F82B81F028C6E982002F9ED7 /* ContentView.swift in Sources */,
 				F82B822328C6ECC2002F9ED7 /* BluetoothController.swift in Sources */,
 				F82B81EE28C6E982002F9ED7 /* MultiversalControlApp.swift in Sources */,
 				F82B823A28C76885002F9ED7 /* IOBluetoothDevice+Remove.m in Sources */,
-				F82B822E28C705C0002F9ED7 /* BonjourBroadcast.swift in Sources */,
+				F82B822E28C705C0002F9ED7 /* BonjourBrowser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

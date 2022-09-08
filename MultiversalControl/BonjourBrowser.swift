@@ -1,5 +1,5 @@
 //
-//  BonjourBroadcast.swift
+//  BonjourBrowser.swift
 //  MultiversalControl
 //
 //  Created by Igor Bielopolskyi on 9/5/22.
