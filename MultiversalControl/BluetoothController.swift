@@ -10,6 +10,12 @@ import Cocoa
 import CoreData
 
 
+var bluetoothController: BluetoothController?
+
+public func setBluetoothController(context: NSManagedObjectContext) {
+    bluetoothController = BluetoothController(context: context)
+}
+
 class PairDelegate : NSObject, IOBluetoothDevicePairDelegate {
     let klass: IOBluetoothDevicePair
     let device: IOBluetoothDevice

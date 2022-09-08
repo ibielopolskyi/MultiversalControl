@@ -9,9 +9,9 @@ import Foundation
 import Network
 import CoreData
 
-var _browser:Browser? = nil
+var _browser: Browser? = nil
 
-func reBrowse(context: NSManagedObjectContext){
+public func reBrowse(context: NSManagedObjectContext){
     if _browser != nil {
         _browser!.browser.cancel()
         _browser = nil

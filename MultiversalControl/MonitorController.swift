@@ -10,6 +10,11 @@ import Cocoa
 import SwiftUI
 import CoreData
 
+var monitorController: MonitorController?
+
+public func setMonitorController(context: NSManagedObjectContext) {
+    monitorController = MonitorController(context: context)
+}
 
 class MonitorController {
     let context: NSManagedObjectContext

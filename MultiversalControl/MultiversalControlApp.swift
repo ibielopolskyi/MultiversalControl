@@ -8,21 +8,22 @@ import Foundation
 import SwiftUI
 import IOBluetooth
 
-
 class AppDelegate: NSResponder, NSApplicationDelegate {
     let persistenceController = PersistenceController.shared
     var popover: NSPopover!
     var statusBar: StatusBarController!
     
-    
     func applicationWillFinishLaunching(_ notification: Notification) {
         let context = persistenceController.container.viewContext
-        MonitorController(context: context).setupNotificationCenter()
+        setBluetoothController(context: context)
+        setMonitorController(context: context)
         reBrowse(context: context)
-        BluetoothController(context: context).start()
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        bluetoothController!.start()
+        monitorController!.setupNotificationCenter()
+
         NSApp.setActivationPolicy(.accessory)
         if let window = NSApplication.shared.windows.first {
             window.close()
