@@ -42,6 +42,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F8B4C34528CA6142001DB85C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 1;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F82B81EA28C6E982002F9ED7 /* MultiversalControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiversalControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F82B81ED28C6E982002F9ED7 /* MultiversalControlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiversalControlApp.swift; sourceTree = "<group>"; };
@@ -181,6 +193,7 @@
 				F82B81E628C6E982002F9ED7 /* Sources */,
 				F82B81E728C6E982002F9ED7 /* Frameworks */,
 				F82B81E828C6E982002F9ED7 /* Resources */,
+				F8B4C34528CA6142001DB85C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -470,8 +483,9 @@
 		F82B821528C6E986002F9ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MultiversalControl/MultiversalControl.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -492,7 +506,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = bielopolskyi.MultiversalControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -505,8 +519,9 @@
 		F82B821628C6E986002F9ED7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MultiversalControl/MultiversalControl.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,7 +541,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = bielopolskyi.MultiversalControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

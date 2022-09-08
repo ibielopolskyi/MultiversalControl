@@ -4,7 +4,7 @@
 //
 //  Created by Igor Bielopolskyi on 9/5/22.
 //
-
+import ServiceManagement
 import SwiftUI
 import CoreData
 
@@ -94,15 +94,33 @@ struct ContentView: View {
             }
         }
     }
-
+    @State private var showDockSettings = false
+    
     var body: some View {
         List() {
             ForEach(items) { monitor in
                 Collapsible(monitor: monitor)
             }
+            HStack() {
+                Spacer()
+                VStack(alignment:.trailing) {
+                    Toggle(isOn: $showDockSettings) {
+                        Text("Show dock settings")
+                    }.onChange(of: showDockSettings) { value in NSApp.setActivationPolicy(value ? .regular : .accessory) }
+                    Button(
+                        action: { exit(0) },
+                        label: { Text("Quit") }
+                    )
+                }.controlSize(.small)
+            }
         }
     }
+}
 
+struct ContentView_Preview : PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
 
 public extension Text {
