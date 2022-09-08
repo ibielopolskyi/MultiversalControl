@@ -13,6 +13,7 @@ struct ContentView: View {
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Monitor.name, ascending: false)],
+        predicate: NSPredicate(format: "ignore == false"),
         animation: .default)
     private var items: FetchedResults<Monitor>
 

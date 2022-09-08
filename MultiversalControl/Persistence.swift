@@ -67,6 +67,17 @@ public extension Monitor {
         }
         return monitors
     }
+    
+    static func getAll(context: NSManagedObjectContext) -> [Monitor] {
+        let fetchRequest: NSFetchRequest<Monitor> = Monitor.fetchRequest()
+        do {
+            return try context.fetch(fetchRequest)
+        } catch {
+            print("Failed to retrieve monitors")
+            print(error)
+            return []
+        }
+    }
 
     static func byName(context: NSManagedObjectContext, name: String) -> Monitor {
         var monitor: Monitor?
