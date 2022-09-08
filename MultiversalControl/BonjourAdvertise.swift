@@ -8,29 +8,32 @@
 import Foundation
 import Network
 
-var server: Server? = nil
+var servers: [Monitor: Server] = [:]
 
-func reAdvertise(txtRecord: NWTXTRecord){
-    print("re-advertisement")
+func reAdvertise(monitor: Monitor) {
+    var server = servers[monitor]
     if (server != nil) {
         server!.stop()
         server = nil
     }
-    do {
-        server = try Server(txtRecord: txtRecord)
-    } catch {
-        print("Could not initialize server")
+    if (monitor.local) {
+        do {
+            server = try Server(monitor: monitor)
+        } catch {
+            print("Could not initialize server")
+        }
+        servers[monitor] = server
     }
 }
 
 class Server {
     let listener: NWListener
 
-    convenience init(txtRecord: NWTXTRecord) throws {
-        try self.init(type: "_kvm._tcp", txtRecord:txtRecord)
+    convenience init(monitor: Monitor) throws {
+        try self.init(type: "_kvm._tcp", monitor: monitor)
     }
 
-    init(type: String = "_kvm._tcp", txtRecord: NWTXTRecord) throws {
+    init(type: String = "_kvm._tcp", monitor: Monitor) throws {
         let tcpOptions = NWProtocolTCP.Options()
         tcpOptions.enableKeepalive = true
         tcpOptions.keepaliveIdle = 2
@@ -39,7 +42,7 @@ class Server {
         parameters.includePeerToPeer = true
         listener = try NWListener(using: parameters)
         
-        listener.service = NWListener.Service(name: "server", type: type, domain: "local", txtRecord: txtRecord)
+        listener.service = NWListener.Service(name: monitor.name!, type: type, domain: "local", txtRecord: try monitor.to_dns())
         listener.stateUpdateHandler = { newState in
             print("listener.stateUpdateHandler \(newState)")
         }

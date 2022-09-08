@@ -19,7 +19,7 @@ func reBrowse(){
 }
 
 class Browser {
-
+    let context = PersistenceController.shared.container.newBackgroundContext()
     let browser: NWBrowser
 
     init(type: String, domain: String) {
@@ -32,18 +32,18 @@ class Browser {
                 if case NWEndpoint.service = result.endpoint {
                     switch result.metadata {
                         case .bonjour(let record):
-                            let model = MDNSModel(fromDict:record.dictionary)
-                            print(record.dictionary)
-                            model.save(remote: true)
+                            let monitor = Monitor.byName(context: self.context, name: record.dictionary["m"]!)
+                            if (!monitor.local) {
+                                monitor.onDiscovery(data: record.dictionary)
+                            }
                         case .none:
-                            print("No metadata")
-                            reBrowse()
+                            return
                         @unknown default:
-                            reBrowse()
-                        }
+                            return
                     }
                 }
             }
+        }
         browser.start(queue: .main)
     }
 }

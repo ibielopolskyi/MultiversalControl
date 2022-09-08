@@ -30,7 +30,6 @@ class PairDelegate : NSObject, IOBluetoothDevicePairDelegate {
         error: IOReturn
     ) {
         if self.device.isPaired(){
-            print("connecting")
             self.device.openConnection()
         } else {
             print("pairing finished and no paired")
@@ -42,7 +41,6 @@ class PairDelegate : NSObject, IOBluetoothDevicePairDelegate {
         status: BluetoothHCIEventStatus
     ) {
         if self.device.isPaired(){
-            print("connecting")
             self.device.openConnection()
         } else {
             print("pairing finished simple complete and no paired")
@@ -54,51 +52,23 @@ class PairDelegate : NSObject, IOBluetoothDevicePairDelegate {
 class BluetoothController {
     let context = PersistenceController.shared.container.newBackgroundContext()
     
-    func pair(device: IOBluetoothDevice) -> IOReturn {
-        if(!device.isPaired()) {
-            let pairing = PairDelegate(device:device)
-            return pairing.klass.start()
+    @objc func handleConnect(notification: IOBluetoothUserNotification, device: IOBluetoothDevice) {
+        for monitor in Monitor.getLocal(context: context) {
+            monitor.addDevice(id: device.addressString)
+            reAdvertise(monitor: monitor)
         }
-        return IOReturn.zero
-    }
-    
-    func connect(device: IOBluetoothDevice) -> IOReturn {
-        if(!device.isConnected()){
-            return device.openConnection()
-        }
-        return IOReturn.zero
     }
 
-    @objc func handleDevices () {
-        guard let devices = IOBluetoothDevice.pairedDevices() else {
-            print("No devices")
-            return
+    @objc func handleDisconnect(notification: IOBluetoothUserNotification, device: IOBluetoothDevice) {
+        for monitor in Monitor.getLocal(context: context) {
+            monitor.removeDevice(id: device.addressString)
+            reAdvertise(monitor: monitor)
         }
-        var connectedDevices : [IOBluetoothDevice] = []
-        for item in devices {
-            if let device = item as? IOBluetoothDevice {
-                if (device.isConnected()) {
-                    connectedDevices.append(device)
-                }
-            }
-        }
-        let fetchRequest: NSFetchRequest<Monitor> = Monitor.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(
-//            format: "local = true"
-//        )
-        do {
-            let objects = try context.fetch(fetchRequest)
-            for object in objects{
-                MDNSModel(monitor: object.name!, devices: connectedDevices).save(remote: !object.local)
-            }
-        } catch {
-            print(error)
-            print("failed to fetch local monitors while updating bluetooth")
-        }
+       
     }
 
     func start() {
-        IOBluetoothDevice.register(forConnectNotifications: self, selector: #selector(handleDevices))
+        IOBluetoothDevice.register(forConnectNotifications: self, selector: #selector(handleConnect))
         guard let devices = IOBluetoothDevice.pairedDevices() else {
             print("No devices")
             return
@@ -106,7 +76,7 @@ class BluetoothController {
         
         for item in devices {
             if let device = item as? IOBluetoothDevice {
-                device.register(forDisconnectNotification: self, selector: #selector(handleDevices))
+                device.register(forDisconnectNotification: self, selector: #selector(handleDisconnect))
             }
         }
     }

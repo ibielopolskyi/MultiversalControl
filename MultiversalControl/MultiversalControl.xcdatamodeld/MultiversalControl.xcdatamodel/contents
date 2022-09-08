@@ -11,13 +11,15 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Peripherals" representedClassName="Peripherals" syncable="YES" codeGenerationType="class">
-        <attribute name="human_readable_name" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="connected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
         <attribute name="ignore" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="lost" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="paired" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monitor" inverseName="peripherals" inverseEntity="Monitor"/>
     </entity>
     <elements>
         <element name="Monitor" positionX="-2138.8671875" positionY="-1158.51953125" width="128" height="88"/>
-        <element name="Peripherals" positionX="-2142" positionY="-1134" width="128" height="89"/>
+        <element name="Peripherals" positionX="-2142" positionY="-1134" width="128" height="119"/>
     </elements>
 </model>

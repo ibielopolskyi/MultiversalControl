@@ -4,8 +4,188 @@
 //
 //  Created by Igor Bielopolskyi on 9/5/22.
 //
-
+import Foundation
 import CoreData
+import Cocoa
+import Network
+
+
+public extension Peripherals {
+    func isConnected() -> Bool {
+        return device().isConnected()
+    }
+    
+    func isPaired() -> Bool {
+        return device().isPaired()
+    }
+    
+    func isLoading() -> Bool {
+        return (isConnected() == false) && (isPaired() == true)
+    }
+
+    func unpair() -> IOReturn {
+        return device().unpair()
+    }
+
+    func displayName() -> String {
+        return device().name
+    }
+
+    func device() -> IOBluetoothDevice {
+        return IOBluetoothDevice(addressString: self.id)!
+    }
+
+    func pair() -> IOReturn {
+        if(!isPaired()) {
+            let pairing = PairDelegate(device:device())
+            return pairing.klass.start()
+        }
+        return IOReturn.zero
+    }
+    
+    func connect() -> IOReturn {
+        if(!device().isConnected()){
+            return device().openConnection()
+        }
+        return IOReturn.zero
+    }
+}
+
+
+public extension Monitor {
+
+    static func getLocal(context: NSManagedObjectContext) -> [Monitor] {
+        var monitors: [Monitor] = []
+        for screen in NSScreen.externalScreens() {
+            monitors.append(Monitor.byName(context: context, name: screen.localizedName))
+        }
+        return monitors
+    }
+
+    static func byName(context: NSManagedObjectContext, name: String) -> Monitor {
+        var monitor: Monitor?
+        let fetchRequest: NSFetchRequest<Monitor> = Monitor.fetchRequest()
+        fetchRequest.predicate = NSPredicate(
+            format: "name = %@", name
+        )
+
+        do {
+            monitor = try context.fetch(fetchRequest).first
+            if(monitor == nil) {
+                monitor = Monitor(context: context)
+                monitor!.name = name
+                for screen in NSScreen.externalScreens() {
+                    if (screen.localizedName == name) {
+                        monitor!.local = true
+                    }
+                }
+            }
+        } catch {
+            print("failed while retreiving monitor")
+        }
+
+        monitor!.safeSave()
+        return monitor!
+    }
+
+    func isConnected() -> Bool {
+        return NSScreen.externalScreens().map { $0.localizedName }.contains(self.name!)
+    }
+    
+    func onConnect() {
+        self.local = true
+        for peripherial in peripheralsList() {
+            if !(peripherial.ignore) {
+                _ = peripherial.pair()
+            }
+        }
+        safeSave()
+    }
+    
+    func onDisconnect() {
+        self.local = false
+        for peripherial in peripheralsList() {
+            if !(peripherial.ignore) {
+                _ = peripherial.unpair()
+            }
+        }
+        safeSave()
+    }
+    
+    func safeSave() {
+        do {
+            try managedObjectContext!.save()
+        } catch {
+            print(error)
+        }
+    }
+
+    func addDevice(id: String) {
+        for peripheral in peripheralsList(includeLost: true).filter({ return $0.id == id }) {
+            peripheral.lost = false
+            safeSave()
+            return
+        }
+        let peripheral = Peripherals(context: managedObjectContext!)
+        peripheral.id = id
+        peripheral.ignore = false
+        addToPeripherals(peripheral)
+        safeSave()
+    }
+
+    func peripheralsList() -> [Peripherals] {
+        return peripheralsList(includeLost: false)
+    }
+
+    func peripheralsList(includeLost: Bool) -> [Peripherals] {
+        var _peripherals: [Peripherals] = []
+        for peripherial in peripherals?.allObjects as! [Peripherals] {
+            if !(peripherial.lost) || includeLost {
+                _peripherals.append(peripherial)
+            }
+        }
+        return _peripherals
+    }
+
+    func removeDevice(id: String) {
+        for peripherial in peripheralsList() {
+            if peripherial.id == id {
+                peripherial.lost = true
+            }
+        }
+        safeSave()
+    }
+    
+    func to_dns() throws -> NWTXTRecord {
+        var ids: Array<String> = []
+        for peripheral in peripheralsList() {
+            if peripheral.isConnected() && !peripheral.ignore {
+                ids.append(peripheral.id!)
+            }
+        }
+        return NWTXTRecord(["m":name!, "ids":String(decoding: try JSONEncoder().encode(ids), as: UTF8.self)])
+    }
+
+    func onDiscovery(data: [String: String]) {
+        do {
+            let jsonDecoder = JSONDecoder()
+            let currentDevices = try jsonDecoder.decode([String].self, from: data["ids"]!.data(using: .utf8)!)
+
+            for device in peripheralsList() {
+                removeDevice(id: device.id!)
+            }
+
+            for device in currentDevices {
+                addDevice(id: device)
+            }
+            
+        } catch {
+            print("Something went wrong while discovery")
+            print(error)
+        }
+    }
+    
+}
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -29,7 +209,9 @@ struct PersistenceController {
                  * The store could not be migrated to the current model version.
                  Check the error message to determine what the actual problem was.
                  */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                
+                //fatalError("Unresolved error \(error), \(error.userInfo)")
+                print(error)
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
