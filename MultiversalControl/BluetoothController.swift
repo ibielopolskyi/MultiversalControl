@@ -43,6 +43,25 @@ class PairDelegate : NSObject, IOBluetoothDevicePairDelegate {
         }
     }
     
+    func devicePairingConnecting(_: Any!) {
+        print("connecting?")
+    }
+    
+    func devicePairingPINCodeRequest(_:Any!) {
+        print("requests")
+    }
+    
+    func devicePairingStarted(_:Any!) {
+        print("started")
+    }
+    
+    func devicePairingUserConfirmationRequest(_:Any!, numericValue: BluetoothNumericValue) {
+        print("user")
+    }
+    
+    func devicePairingUserPasskeyNotification(_:Any!, passkey: BluetoothPasskey) {
+        print("notification")
+    }
     func deviceSimplePairingComplete(
         _ sender: Any!,
         status: BluetoothHCIEventStatus
