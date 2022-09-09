@@ -31,7 +31,7 @@ public extension Peripherals {
     }
 
     func displayName() -> String {
-        return device().name
+        return display!
     }
 
     func device() -> IOBluetoothDevice {
@@ -54,6 +54,19 @@ public extension Peripherals {
             return device().openConnection()
         }
         return IOReturn.zero
+    }
+    
+    func setDisplay() {
+        let btName = device().name
+        if btName != nil && btName != display {
+            display = btName
+            do {
+                try managedObjectContext!.save()
+            } catch {
+                print("Display name failed to save")
+                print(error)
+            }
+        }
     }
 }
 
@@ -139,6 +152,7 @@ public extension Monitor {
         for peripheral in peripheralsList(includeLost: true).filter({ return $0.id == id }) {
             print("Existing device update")
             peripheral.lost = false
+            peripheral.setDisplay()
             return
         }
         let peripheral = Peripherals(context: managedObjectContext!)
@@ -146,6 +160,7 @@ public extension Monitor {
         peripheral.ignore = false
         peripheral.lost = false
         peripheral.uuid = UUID()
+        peripheral.setDisplay()
         addToPeripherals(peripheral)
     }
 
