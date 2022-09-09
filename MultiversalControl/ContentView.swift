@@ -29,6 +29,10 @@ struct ContentView: View {
         @State private var collapsed: Bool = true
 
         func doIgnore(peripheral: Peripherals) {
+            if (monitor.local && !peripheral.isConnected()) {
+                _ = peripheral.unpair()
+                _ = peripheral.pair()
+            }
             peripheral.ignore = !peripheral.ignore
             reAdvertise(monitor: monitor)
             if peripheral.isLoading() && peripheral.ignore {
@@ -75,7 +79,7 @@ struct ContentView: View {
                                             accessibilityDescription: "These are the active monitor peripherals"
                                         )!
                                     ).frame(alignment: .leading).foregroundColor(.green)
-                                } else if (peripheral.isLoading() && monitor.local) {
+                                } else if (!peripheral.isConnected() && !peripheral.ignore && monitor.local) {
                                     ProgressView().controlSize(.small).frame(alignment: .leading)
                                 } else {
                                     EmptyView()
