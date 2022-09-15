@@ -157,7 +157,7 @@ public extension Monitor {
         }
         let peripheral = Peripherals(context: managedObjectContext!)
         peripheral.id = id
-        peripheral.ignore = false
+        peripheral.ignore = true
         peripheral.lost = false
         peripheral.uuid = UUID()
         peripheral.setDisplay()
